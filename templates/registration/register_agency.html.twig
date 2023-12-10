@@ -1,0 +1,32 @@
+{# templates/registration/register_agency.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription Agence{% endblock %}
+
+{% block body %}
+<h2>Inscription Agence</h2>
+
+{{ form_start(registrationForm) }}
+    {{ form_errors(registrationForm) }}
+
+    <div>
+        {{ form_label(registrationForm.email) }}
+        {{ form_widget(registrationForm.email) }}
+        {{ form_errors(registrationForm.email) }}
+    </div>
+
+    <!-- Ajoutez d'autres champs de formulaire ici de la même manière -->
+
+    <div>
+        {{ form_label(registrationForm.password) }}
+        {{ form_widget(registrationForm.password) }}
+        {{ form_errors(registrationForm.password) }}
+    </div>
+
+    <!-- Répétez pour chaque champ du formulaire -->
+
+    <button type="submit">Inscrire</button>
+
+{{ form_end(registrationForm) }}
+{% endblock %}

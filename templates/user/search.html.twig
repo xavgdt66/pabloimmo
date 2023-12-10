@@ -1,0 +1,53 @@
+{# templates/user/search.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Rechercher un locataire
+{% endblock %}
+
+{% block body %}
+	<h1>Rechercher un locataire</h1>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+
+	
+      <form action="{{ path('app_user_search') }}" method="get" class="form-inline my-2 my-lg-0">
+        <div class="input-group w-100">
+          <input type="search" name="q" placeholder="Rechercher par email..." value="{{ searchTerm }}" id="search-input" class="form-control" aria-label="Search by email...">
+          <div class="input-group-append">
+            <button id="search-button" type="submit" class="btn btn-outline-primary">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+	{% if searchPerformed %}
+		{% if users is not empty %}
+			<ul>
+				{% for user in users %}
+					<li>{{ user.email }}
+					</li>
+					<a href="{{ path('app_profile', {'id': user.id}) }}">En voir plus</a>
+
+				{% endfor %}
+			</ul>
+		{% else %}
+			<p>Aucun utilisateur trouvé.</p>
+		{% endif %}
+	{% endif %}
+{% endblock %}

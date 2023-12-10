@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
+
+  /* S'assurer que le h1 n'est pas trop proche du haut de la page */
+  h1 {
+    margin-top: 3cm; /* ajustez cette valeur selon vos besoins */
+    margin-bottom: -5cm;
+    color: #EC5A13;
+  }
+
+    .centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 2rem); /* Calcule pour ajuster la hauteur en tenant compte de la marge du h1 */
+  }
+
+  .input-group {
+    width: 50%; /* ou la largeur que vous préférez */
+    max-width: 600px; /* une largeur maximale peut être utile */
+    /* Vous pouvez supprimer la marge supérieure ou la mettre à une valeur très petite */
+  }
+  .btn-custom {
+    background-color: #EC5A13; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    border: none; /* Supprimer la bordure du bouton */
+  }
+
+  .btn-custom:hover {
+    background-color: #bf4c0f; /* Une teinte plus foncée pour le survol */
+    color: white;
+  }
+  #huncenter{
+font-family: 'Nunito Sans', sans-serif;  }
+</style>
+
+<h1 class="text-center" id="huncenter" >Trouvez le locataire idéale</h1>
+
+<div class="centered-container">
+  <div class="input-group">
+    <input type="search" class="form-control rounded" placeholder="Rechercher un locataire" aria-label="Search" aria-describedby="search-addon" />
+    <button type="button" class="btn btn-custom">
+      <i class="fas fa-search"></i>
+    </button>  
+  </div>
+</div>
+
+{% endblock %}

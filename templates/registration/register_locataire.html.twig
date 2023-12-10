@@ -1,0 +1,25 @@
+{# templates/registration/register_locataire.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription Locataire{% endblock %}
+
+{% block body %}
+<h2>Inscription Locataire</h2>
+
+{{ form_start(registrationForm) }}
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_row(registrationForm.email) }}
+    {{ form_row(registrationForm.password) }}
+    <!-- Ajoutez ici les autres champs que vous souhaitez afficher -->
+
+    <!-- N'oubliez pas d'inclure le champ CSRF manuellement si vous utilisez 'render_rest': false -->
+    {{ form_row(registrationForm._token) }}
+
+    <button type="submit">Inscrire</button>
+
+{{ form_end(registrationForm, {'render_rest': false}) }}
+
+{% endblock %}
